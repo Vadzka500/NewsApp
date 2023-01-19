@@ -13,22 +13,66 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.navigation.fragment.findNavController
 import com.example.newstestapp.databinding.ActivityMainBinding
+import kotlinx.coroutines.*
+import kotlinx.coroutines.android.awaitFrame
+import kotlin.coroutines.CoroutineContext
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), CoroutineScope  {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
+
+    override val coroutineContext: CoroutineContext
+        get() = Dispatchers.Main + job
+
+    private lateinit var job: Job
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         WindowCompat.setDecorFitsSystemWindows(window, false)
         super.onCreate(savedInstanceState)
         Log.i("main", "start activity")
 
+        job = Job()
+
+
+
+
         binding = ActivityMainBinding.inflate(layoutInflater)
 
         setContentView(binding.root)
 
         setSupportActionBar(binding.toolbar)
+
+
+
+
+        Log.i("main", "main 1")
+        launch {
+
+            val i = getTest()
+            val j = getTest2()
+            //val i = async(Dispatchers.IO){getTest()}
+                //val j = async(Dispatchers.IO) { getTest2() }
+
+
+
+            endProcess(i, j)
+
+
+        }
+
+
+      /*  GlobalScope.launch(Dispatchers.Main){
+            getTest()
+        }*/
+       /* runBlocking {
+            launch {
+                getTest()
+            }
+        }*/
+        Log.i("main", "main 2")
 
         //val f = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_content_main);
 
@@ -44,6 +88,32 @@ class MainActivity : AppCompatActivity() {
                 .setAnchorView(R.id.fab)
                 .setAction("Action", null).show()
         }*/
+    }
+
+    fun endProcess(boolean1: Boolean, boolean2: Boolean) =  Log.i("main","end: $boolean1 and $boolean2")
+
+
+    override fun onDestroy() {
+        job.cancel()
+        super.onDestroy()
+    }
+
+    suspend  fun  getTest() : Boolean{
+        Log.i("main", "start1 coroutines")
+        for(i in 1..100 ){
+            delay(100)
+        }
+        Log.i("main", "end1 coroutines")
+        return true;
+    }
+
+    suspend fun getTest2() : Boolean{
+        Log.i("main", "start2 coroutines")
+        for(i in 1..50 ){
+            delay(100)
+        }
+        Log.i("main", "end2 coroutines")
+        return true
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
