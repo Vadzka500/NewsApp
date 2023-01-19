@@ -1,12 +1,12 @@
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="100dp"
     android:height="100dp"
-    android:viewportWidth="700"
-    android:viewportHeight="700">
+    android:viewportWidth="750"
+    android:viewportHeight="750">
 
     <group
-        android:translateX="94"
-        android:translateY="94">
+        android:translateX="119"
+        android:translateY="119">
 
         <group
             android:name="logoGroup"

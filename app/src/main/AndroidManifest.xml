@@ -11,6 +11,7 @@
         android:roundIcon="@drawable/icon_splash"
         android:supportsRtl="true"
         android:theme="@style/Theme.NewsTestApp"
+
         tools:targetApi="31">
 
 
