@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.facebook.shimmer.ShimmerFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/shimmer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".FirstFragment">
+
+        <include
+            android:id="@+id/first_card"
+            layout="@layout/card_layout"
+            />
+
+        <include
+            layout="@layout/card_layout"
+             />
+
+        <include
+            layout="@layout/card_layout"
+            />
+    </LinearLayout>
+</com.facebook.shimmer.ShimmerFrameLayout>
+
