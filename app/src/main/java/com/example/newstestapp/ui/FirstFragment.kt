@@ -1,4 +1,4 @@
-package com.example.newstestapp
+package com.example.newstestapp.ui
 
 import android.os.Bundle
 import android.util.Log
