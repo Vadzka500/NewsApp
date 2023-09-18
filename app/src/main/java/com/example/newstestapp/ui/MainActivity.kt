@@ -10,6 +10,8 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
+import androidx.navigation.NavController
+import androidx.navigation.ui.NavigationUI
 import com.example.newstestapp.R
 import com.example.newstestapp.databinding.ActivityMainBinding
 import kotlinx.coroutines.*
@@ -37,6 +39,7 @@ class MainActivity : AppCompatActivity(), CoroutineScope  {
 
 
 
+
         binding = ActivityMainBinding.inflate(layoutInflater)
 
         setContentView(binding.root)
@@ -53,8 +56,6 @@ class MainActivity : AppCompatActivity(), CoroutineScope  {
             val j = getTest2()
             //val i = async(Dispatchers.IO){getTest()}
                 //val j = async(Dispatchers.IO) { getTest2() }
-
-
 
             endProcess(i, j)
 
@@ -77,16 +78,41 @@ class MainActivity : AppCompatActivity(), CoroutineScope  {
         //val navController = f?.findNavController();
         val navController = findNavController(R.id.nav_host_fragment_content_main)
 
+
+
+
         //appBarConfiguration = AppBarConfiguration(navController!!.graph)
         appBarConfiguration = AppBarConfiguration(navController.graph)
-        setupActionBarWithNavController(navController, appBarConfiguration)
 
-       /* binding.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAnchorView(R.id.fab)
-                .setAction("Action", null).show()
+        setupActionBarWithNavController(navController, appBarConfiguration)
+        NavigationUI.setupWithNavController(binding.bottomNav,navController)
+
+        navController.addOnDestinationChangedListener { _, _, _ ->
+            binding.toolbar.navigationIcon = null
+        }
+
+
+        /* binding.fab.setOnClickListener { view ->
+             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                 .setAnchorView(R.id.fab)
+                 .setAction("Action", null).show()
+         }*/
+
+       /* binding.bottomNav.setOnItemSelectedListener { item ->
+
+            when(item.itemId){
+                R.id.list2 ->{
+                    navController.navigate(R.id.action_FirstFragment_to_ThirdFragment)
+                    binding.toolbar.navigationIcon = null
+                    return@setOnItemSelectedListener true
+                }
+            }
+
+            return@setOnItemSelectedListener true
         }*/
+
     }
+
 
     fun endProcess(boolean1: Boolean, boolean2: Boolean) =  Log.i("main","end: $boolean1 and $boolean2")
 

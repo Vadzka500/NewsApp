@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toolbar
 import androidx.navigation.fragment.findNavController
 import com.example.newstestapp.R
 import com.example.newstestapp.databinding.FragmentSecondBinding
@@ -26,6 +27,7 @@ class SecondFragment : Fragment() {
     ): View? {
 
         _binding = FragmentSecondBinding.inflate(inflater, container, false)
+
         return binding.root
 
     }

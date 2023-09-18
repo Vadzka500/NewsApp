@@ -28,6 +28,7 @@ class FirstFragment : Fragment() {
         _binding = FragmentFirstBinding.inflate(inflater, container, false)
 
         //_binding!!.firstCard.shimmer.startShimmer()
+
         _binding!!.root.startShimmer()
         return binding.root
 
@@ -39,6 +40,8 @@ class FirstFragment : Fragment() {
        /* binding.buttonFirst.setOnClickListener {
             findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
         }*/
+
+
     }
 
     override fun onDestroyView() {

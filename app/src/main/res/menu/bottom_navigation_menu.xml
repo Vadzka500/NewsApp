@@ -2,17 +2,17 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/list"
+        android:id="@+id/FirstFragment"
         android:title="news"
         android:icon="@drawable/icn_news_list"/>
 
     <item
-        android:id="@+id/list1"
+        android:id="@+id/SecondFragment"
         android:title="news"
         android:icon="@drawable/icn_news_list"/>
 
     <item
-        android:id="@+id/list2"
+        android:id="@+id/ThirdFragment"
         android:title="news"
         android:icon="@drawable/baseline_newspaper_24"/>
 
