@@ -47,6 +47,7 @@ class MainActivity : AppCompatActivity(), CoroutineScope  {
         setSupportActionBar(binding.toolbar)
 
 
+
         Log.i("main", "main 1")
         launch {
 
