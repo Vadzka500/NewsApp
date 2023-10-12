@@ -47,8 +47,6 @@ class MainActivity : AppCompatActivity(), CoroutineScope  {
         setSupportActionBar(binding.toolbar)
 
 
-
-
         Log.i("main", "main 1")
         launch {
 
@@ -86,6 +84,7 @@ class MainActivity : AppCompatActivity(), CoroutineScope  {
 
         setupActionBarWithNavController(navController, appBarConfiguration)
         NavigationUI.setupWithNavController(binding.bottomNav,navController)
+
 
         navController.addOnDestinationChangedListener { _, _, _ ->
             binding.toolbar.navigationIcon = null
