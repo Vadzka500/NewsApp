@@ -14,9 +14,12 @@ import androidx.navigation.NavController
 import androidx.navigation.ui.NavigationUI
 import com.example.newstestapp.R
 import com.example.newstestapp.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.*
 import kotlin.coroutines.CoroutineContext
 
+
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity(), CoroutineScope  {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
